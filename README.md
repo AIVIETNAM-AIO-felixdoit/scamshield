@@ -4,7 +4,7 @@
 
 > Built solo for **Next Byte Hacks V5** (November 2026).
 
-**▶ Live demo:** https://aivietnam-aio-felixdoit.github.io/scamshield/  ·  **🎬 Video:** YOUTUBE-LINK
+**▶ Live demo:** https://aivietnam-aio-felixdoit.github.io/scamshield/  ·  **🎬 Demo video:** https://youtu.be/-GJfiwtbLxE
 
 ![ScamShield](screenshots/thumbnail-16x9.png)
 

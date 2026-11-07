@@ -1,0 +1,58 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{width:100vw;height:100vh;overflow:hidden}
+body{font-family:Inter,sans-serif;color:#e8ecf8;
+  background:radial-gradient(70vw 60vh at 0% 0%,#1e3a8a 0%,transparent 60%),radial-gradient(60vw 60vh at 100% 100%,#6d28d955 0%,transparent 60%),#0b1020;
+  display:flex;align-items:center;justify-content:center;gap:4.5vw;padding:5vh 5vw;position:relative}
+body::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:5vh 5vh;mask:radial-gradient(circle at 50% 50%,#000 30%,transparent 80%)}
+.left{flex:1.05;position:relative;z-index:1}
+.logo{display:flex;align-items:center;gap:1.6vh;margin-bottom:3vh}
+.logo svg{width:11vh;height:11vh;filter:drop-shadow(0 0 3vh #22c55e88)}
+h1{font-size:12vh;font-weight:900;letter-spacing:-.05em;line-height:.95}
+h1 b{color:#22c55e}
+h2{font-size:5.6vh;font-weight:800;letter-spacing:-.03em;line-height:1.12;margin-bottom:3.4vh;
+  background:linear-gradient(90deg,#4ade80,#60a5fa 55%,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tags{display:flex;flex-wrap:wrap;gap:1.2vh}
+.tags span{font-size:2.5vh;font-weight:600;padding:1vh 2vh;border-radius:99px;background:#121a36;border:1px solid #2a3768;color:#cbd5f5}
+.tags span.g{background:#14532d66;border-color:#22c55e77;color:#bbf7d0}
+.right{flex:1;position:relative;z-index:1;display:flex;flex-direction:column;gap:2.2vh}
+.card{background:linear-gradient(180deg,#141d3d,#10183299);border:1px solid #2a3768;border-radius:2.6vh;padding:3vh;box-shadow:0 3vh 8vh #0008}
+.msg{font-size:2.7vh;line-height:1.75}
+.msg .from{font-size:1.9vh;color:#94a0c4;margin-bottom:1vh;font-weight:600}
+mark{color:inherit;border-radius:.5vh;padding:0 .3vh;background:color-mix(in srgb,var(--c) 25%,transparent);border-bottom:.35vh solid var(--c)}
+.url{font-family:'JetBrains Mono',monospace;font-size:.9em}
+.verdict{display:flex;align-items:center;gap:3vh;border-color:#ef444466;background:radial-gradient(circle at 15% 50%,#ef444433,transparent 60%),linear-gradient(180deg,#141d3d,#101832)}
+.gauge{position:relative;width:17vh;height:17vh;flex-shrink:0}
+.gauge svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gauge circle{fill:none;stroke-width:11}
+.gauge span{position:absolute;inset:0;display:grid;place-items:center;font-size:6.4vh;font-weight:900;letter-spacing:-.04em}
+.badge{display:inline-block;font-size:1.8vh;font-weight:800;letter-spacing:.14em;color:#fca5a5;border:1px solid #ef444477;background:#ef444422;padding:.5vh 1.4vh;border-radius:99px}
+.verdict h3{font-size:3.8vh;font-weight:800;margin:1vh 0 .4vh;letter-spacing:-.02em}
+.verdict p{font-size:2.3vh;color:#94a0c4}
+.verdict p b{color:#fde68a;font-family:'JetBrains Mono',monospace}
+/* 16:9 tweaks */
+@media (min-aspect-ratio:16/10){ h1{font-size:13vh} .right{flex:.95} }
+</style></head>
+<body>
+  <div class="left">
+    <div class="logo">
+      <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5z" fill="#16a34a33" stroke="#22c55e" stroke-width="1.3"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h1>Scam<b>Shield</b></h1>
+    <h2>Spot scam messages<br>before you click.</h2>
+    <div class="tags"><span class="g">🔒 100% on-device</span><span>🌐 EN · VI</span><span>🔗 Look-alike links</span><span>🧠 Explainable</span></div>
+  </div>
+  <div class="right">
+    <div class="card msg">
+      <div class="from">+1 (415) 555-0199 · SMS</div>
+      <mark style="--c:#f59e0b">URGENT</mark>: your <mark style="--c:#3b82f6">PayPal</mark> <mark style="--c:#ef4444">account has been suspended</mark>. <mark style="--c:#dc2626">Verify your account</mark> <mark style="--c:#f59e0b">within 24 hours</mark>: <mark class="url" style="--c:#dc2626">paypa1-secure.xyz</mark>
+    </div>
+    <div class="card verdict">
+      <div class="gauge"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" stroke="#1e2850"/><circle cx="60" cy="60" r="52" stroke="#ef4444" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="6.5" style="filter:drop-shadow(0 0 6px #ef4444)"/></svg><span>98</span></div>
+      <div><span class="badge">HIGH RISK</span><h3>Phishing detected</h3><p><b>paypa1</b> imitates paypal.com</p></div>
+    </div>
+  </div>
+</body></html>

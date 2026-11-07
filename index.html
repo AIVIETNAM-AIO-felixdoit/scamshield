@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScamShield – Spot scam messages in one second</title>
+  <meta name="description" content="Paste any suspicious SMS, email or chat message. ScamShield explains every red flag, inspects links for look-alike domains and tells you what to do – 100% on your device.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2322c55e' d='M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5z'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5z"/><path class="tick" d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+      <span>Scam<b>Shield</b></span>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-view="analyze" role="tab">Analyze</button>
+      <button class="tab" data-view="train" role="tab">Train your eye</button>
+      <button class="tab" data-view="how" role="tab">How it works</button>
+    </nav>
+    <div class="privacy-pill" title="All analysis happens in your browser. Nothing is uploaded.">
+      <span class="dot"></span> 100% on-device
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= ANALYZE ================= -->
+    <section id="view-analyze" class="view active">
+      <div class="hero">
+        <h1>Got a weird message? <span class="grad">Check it before you click.</span></h1>
+        <p>Paste any SMS, email or chat message. ScamShield shows every red flag, checks links for look-alike domains, and tells you exactly what to do. Works in English and Vietnamese, and it runs entirely on your device.</p>
+      </div>
+
+      <div class="grid-top">
+        <div class="card input-card">
+          <label for="msg" class="card-title">Suspicious message</label>
+          <textarea id="msg" spellcheck="false" placeholder="Paste the message here…  e.g. “Your account has been suspended, verify within 24h at …”"></textarea>
+          <div class="input-foot">
+            <span id="charcount">0 characters</span>
+            <div class="actions">
+              <button id="clearBtn" class="btn ghost">Clear</button>
+              <button id="pasteBtn" class="btn ghost">Paste</button>
+              <button id="analyzeBtn" class="btn primary">Analyze</button>
+            </div>
+          </div>
+          <div class="examples">
+            <span class="muted">Try an example:</span>
+            <div id="exampleChips" class="chips"></div>
+          </div>
+        </div>
+
+        <div class="card verdict-card" id="verdictCard">
+          <div class="empty" id="emptyState">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5z"/></svg>
+            <p>Your risk report will appear here.</p>
+            <small>Nothing you paste leaves this page.</small>
+          </div>
+          <div class="verdict hidden" id="verdict">
+            <div class="gauge">
+              <svg viewBox="0 0 120 120">
+                <circle class="track" cx="60" cy="60" r="52"/>
+                <circle class="meter" id="meter" cx="60" cy="60" r="52"/>
+              </svg>
+              <div class="gauge-label"><span id="scoreNum">0</span><small>risk</small></div>
+            </div>
+            <div class="verdict-text">
+              <div class="level" id="levelBadge">LOW RISK</div>
+              <h2 id="verdictTitle">Looks safe</h2>
+              <p class="type">Pattern: <b id="scamType">–</b></p>
+              <div id="combos" class="combos"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="details" class="hidden">
+        <div class="card">
+          <div class="card-title">Your message, annotated <span class="muted small">— hover or tap a highlight to see why</span></div>
+          <div id="annotated" class="annotated"></div>
+          <div id="legend" class="legend"></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">Red flags found <span id="flagCount" class="count"></span></div>
+            <div id="flags" class="flags"></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Link inspector</div>
+            <div id="links" class="links"></div>
+          </div>
+        </div>
+
+        <div class="card advice-card">
+          <div class="card-title">What to do now</div>
+          <ol id="advice" class="advice"></ol>
+          <div class="advice-actions">
+            <button id="copyReport" class="btn primary">Copy safety report</button>
+            <span class="muted small">Send it to a family member who just got the same message.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TRAIN ================= -->
+    <section id="view-train" class="view">
+      <div class="hero">
+        <h1>Train your eye. <span class="grad">Scam or legit?</span></h1>
+        <p>Eight real-world style messages. Decide fast, then see what gave each one away.</p>
+      </div>
+      <div class="quiz-wrap">
+        <div class="quiz-progress" id="quizProgress"></div>
+        <div class="card quiz-card" id="quizCard">
+          <div class="phone">
+            <div class="phone-head"><span class="avatar" id="quizAvatar">?</span><span id="quizFrom">Sender</span></div>
+            <div class="bubble" id="quizBubble"></div>
+          </div>
+          <div class="quiz-actions" id="quizActions">
+            <button class="btn big danger" data-answer="scam">🚩 Scam</button>
+            <button class="btn big safe" data-answer="legit">✅ Legit</button>
+          </div>
+          <div class="quiz-feedback hidden" id="quizFeedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW ================= -->
+    <section id="view-how" class="view">
+      <div class="hero">
+        <h1>How ScamShield <span class="grad">thinks</span></h1>
+        <p>An explainable rule engine, not a black box. Every point of risk comes with a reason you can read.</p>
+      </div>
+      <div class="pipeline">
+        <div class="step"><div class="num">1</div><h3>Normalise</h3><p>Unicode NFC, lower-case and diacritic folding, so <i>“khóa tài khoản”</i> and <i>“khoa tai khoan”</i> match the same rule. Character positions are kept 1:1 for highlighting.</p></div>
+        <div class="step"><div class="num">2</div><h3>Detect tactics</h3><p><b id="ruleCount">–</b> bilingual patterns across <b id="catCount">–</b> manipulation tactics: urgency, threats, secret requests, untraceable payments, impersonation…</p></div>
+        <div class="step"><div class="num">3</div><h3>Inspect links</h3><p>Look-alike detection (Levenshtein distance + leet-speak decoding), brand-in-subdomain, punycode, raw IPs, shorteners and abused TLDs.</p></div>
+        <div class="step"><div class="num">4</div><h3>Score &amp; explain</h3><p>Diminishing returns per rule, combination boosts (e.g. <i>link + password request</i>), squashed to 0–100, then mapped to a scam type with tailored advice.</p></div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Why it matters</div>
+          <ul class="facts">
+            <li>Fraud is now the most common crime that people report in many countries, and most of it begins with a single message.</li>
+            <li>Older adults, students and first-time internet users are hit hardest, and they're often too embarrassed to ask anyone for help.</li>
+            <li>The same tactics show up in every language. ScamShield teaches people to recognise the <b>tactic</b>, not just one particular message.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">Privacy by design</div>
+          <ul class="facts">
+            <li>No server, no account, no tracking: the engine is plain JavaScript running in your browser.</li>
+            <li>Works offline once loaded, so it's safe to paste bank messages and personal details.</li>
+            <li>Open source and unit-tested, so anyone can audit or extend the rules.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>ScamShield · Built for Next Byte Hacks V5 · Runs locally – your messages never leave your device.</footer>
+  <div id="toast" class="toast"></div>
+
+  <script src="src/engine.js"></script>
+  <script src="src/samples.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

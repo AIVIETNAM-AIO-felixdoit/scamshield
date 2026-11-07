@@ -1,0 +1,15 @@
+[
+  {"id": "intro", "text": "Hi! This is ScamShield, my solo project for Next Byte Hacks version five. ScamShield helps anyone spot a scam message before they click."},
+  {"id": "problem", "text": "Here's the problem. Scam texts, emails and chat messages now reach billions of people, and they work because they push your emotions with fear, urgency or easy money. The victims are usually our parents, our grandparents, students and new internet users, and most of them never had anyone teach them the warning signs."},
+  {"id": "home", "text": "ScamShield is a web app. You paste any suspicious message and get an explained risk report in under a second. It needs no account and no server, and it doesn't use an A.I. API. All the analysis runs in your browser, so you can safely paste a real bank message."},
+  {"id": "bank", "text": "Let's try a fake PayPal alert. The risk score jumps to ninety-eight, high risk, and the pattern is phishing. ScamShield also flags dangerous combinations, like a link combined with a request to verify your account."},
+  {"id": "annotate", "text": "Every red flag is highlighted right inside the message. Hover over one, and ScamShield explains the manipulation tactic in plain language, so the user learns why it's dangerous."},
+  {"id": "links", "text": "The link inspector is my favourite part. This domain says paypa1, with the number one instead of the letter L. ScamShield decodes those character swaps, measures edit distance against real brand domains, and also catches shorteners, raw IP addresses, punycode and cheap scam domains."},
+  {"id": "advice", "text": "Then it tells you exactly what to do, and you can copy a safety report to send to a family member."},
+  {"id": "vietnamese", "text": "Scams don't only happen in English. In Vietnam, a very common scam is a fake police call. Because ScamShield folds the Vietnamese diacritics, it matches words with or without accents, detects the police impersonation and the malicious A.P.K. download, and explains it all."},
+  {"id": "legit", "text": "And it doesn't cry wolf. A normal message scores zero."},
+  {"id": "typing", "text": "Now let me type a new one, the classic hi mom, I lost my phone scam. ScamShield analyses the message live as I type, and it catches the gift card request, the urgency and the secrecy."},
+  {"id": "train", "text": "Detection alone isn't enough, so there's also a Train your eye mode. You decide if a message is a scam or legit, and the engine then shows you what gave it away. It works like a vaccine against future scams."},
+  {"id": "how", "text": "Under the hood there are forty-eight bilingual detection patterns across thirteen tactics, a link analyser, scoring with diminishing returns and combination boosts, and a scam type classifier with tailored advice. The engine is covered by unit tests and runs fully offline."},
+  {"id": "outro", "text": "Next, I want to turn ScamShield into a browser extension and a mobile share target, so you can check a message straight from your inbox, and I want to add more languages. Thanks for watching, and stay safe out there!"}
+]

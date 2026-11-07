@@ -1,0 +1,10 @@
+{
+  "name": "scamshield",
+  "version": "1.0.0",
+  "description": "Explainable, on-device scam message detector (English + Vietnamese).",
+  "scripts": {
+    "test": "node --test",
+    "start": "npx --yes http-server -p 8080 -c-1 ."
+  },
+  "license": "MIT"
+}

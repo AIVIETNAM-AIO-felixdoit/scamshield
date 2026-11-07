@@ -9,7 +9,7 @@
 Paste any suspicious SMS, email or chat message to get an explained risk score, highlighted red flags and look-alike link detection. It works in English and Vietnamese and runs entirely in your browser.
 
 [![Live demo](https://img.shields.io/badge/▶_Live_demo-GitHub_Pages-22c55e?style=for-the-badge)](https://aivietnam-aio-felixdoit.github.io/scamshield/)
-[![Demo video](https://img.shields.io/badge/🎬_Demo_video-YouTube-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/-GJfiwtbLxE)
+[![Demo video](https://img.shields.io/badge/🎬_Demo_video-YouTube-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/ulkjAiphnaw)
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2020-f7df1e?logo=javascript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-e34f26?logo=html5&logoColor=white)
